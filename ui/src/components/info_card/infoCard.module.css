@@ -1,0 +1,16 @@
+.wrapper {
+  padding-left: var(--mantine-spacing-md);
+  /* border-left: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4)); */
+}
+
+.card {
+  padding: var(--mantine-spacing-lg) var(--mantine-spacing-xl);
+}
+
+.icon {
+  color: light-dark(var(--mantine-color-gray-5), var(--mantine-color-dark-3));
+}
+
+.name {
+  font-family: Outfit, var(--mantine-font-family);
+}

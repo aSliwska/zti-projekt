@@ -1,0 +1,10 @@
+.actions {
+    display: flex;
+    gap: 4px;
+}
+
+.hover {
+  @mixin hover {
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-6));
+  }
+}
