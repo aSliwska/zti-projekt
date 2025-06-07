@@ -1,0 +1,61 @@
+type Patient {
+    id: ID!
+    fname: String!
+    lname: String!
+    date_of_birth: String!
+    phone: String!
+    weights: [Weight!]!
+    bloodPressures: [BloodPressure!]!
+}
+
+type Weight {
+    id: ID!
+    patient: Patient!
+    measurment_time: String!
+    weight: Float!
+}
+
+type BloodPressure {
+    id: ID!
+    patient: Patient!
+    measurment_time: String!
+    systolic: Int!
+    diastolic: Int!
+}
+
+type Query {
+    patients: [Patient!]!
+    patient(id: ID!): Patient
+}
+
+input PatientInput {
+    fname: String!
+    lname: String!
+    date_of_birth: String!
+    phone: String!
+}
+
+input WeightInput {
+    measurment_time: String!
+    weight: Float!
+}
+
+input BloodPressureInput {
+    measurment_time: String!
+    systolic: Int!
+    diastolic: Int!
+}
+ 
+type Mutation {
+    createPatient(patientInput: PatientInput!): Patient
+    updatePatient(id: ID!, patientInput: PatientInput!): Patient
+    removePatient(id: ID!): ID!
+
+    createWeight(patient_id: Int!, weightInput: WeightInput!): Weight
+    updateWeight(id: ID!, weightInput: WeightInput!): Weight
+    removeWeight(id: ID!): ID!
+
+    createBloodPressure(patient_id: Int!, bloodPressureInput: BloodPressureInput!): BloodPressure
+    updateBloodPressure(id: ID!, bloodPressureInput: BloodPressureInput!): BloodPressure
+    removeBloodPressure(id: ID!): ID!
+}
