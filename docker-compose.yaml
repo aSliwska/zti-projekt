@@ -1,0 +1,24 @@
+name: zti-projekt-bundlec
+services:
+    zti-projekt-ui:
+        ports:
+            - 3001:3000
+        networks:
+            - zti-project
+        restart: always
+        container_name: zti-projekt-ui
+        image: zti-projekt-ui
+        build: ./ui/
+    zti-projekt-server:
+        ports:
+            - 6661:8080
+        networks:
+            - zti-project
+        restart: always
+        container_name: zti-projekt-server
+        image: zti-projekt-server
+        build: ./server/
+networks:
+    zti-project:
+        external: true
+        name: zti-project
