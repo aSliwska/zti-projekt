@@ -23,7 +23,7 @@ export default function InfoCard() {
                 <Group wrap="nowrap" gap={10} mt={3}>
                     <IconCalendarWeek stroke={1.5} size={16} className={style.icon} />
                     <Text fz="xs" c="dimmed">
-                    {patientCard?.dateOfBirth ?? '-'}
+                    {patientCard?.date_of_birth ?? '-'}
                     </Text>
                 </Group>
 

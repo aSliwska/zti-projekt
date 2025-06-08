@@ -7,7 +7,7 @@ import { Button, Group, Stack, Text, TextInput, ActionIcon } from '@mantine/core
 import { useEffect } from 'react';
 
 
-export default function AddForm({ action, setAction, editedRow, defaultFormValues, formValidate, columns }) {
+export default function AddForm({ action, setAction, editedRow, defaultFormValues, formValidate, columns, onCreate, onUpdate }) {
     const form = useForm({
         initialValues: (action === "edit") ? editedRow : defaultFormValues,
         validate: formValidate,
@@ -29,7 +29,7 @@ export default function AddForm({ action, setAction, editedRow, defaultFormValue
     return (
         <div className={style.form}>
             {(action === "add") || (action === "edit") ?
-                <form onSubmit={form.onSubmit(() => {})}>
+                <form onSubmit={(action === "add") ? form.onSubmit(onCreate) : form.onSubmit(onUpdate)}>
                     <Stack>
                         {columns.map((column, index) => 
                             <TextInput

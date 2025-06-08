@@ -6,7 +6,7 @@ import style from "./listWithForm.module.css";
 import { useState } from "react";
 
 
-export default function ListWithForm({ rows, columns, onRowClick, defaultFormValues, formValidate }) {
+export default function ListWithForm({ rows, columns, onRowClick, defaultFormValues, formValidate, onCreate, onUpdate, onRemove, setCurrentId, setRemoveId }) {
     const [action, setAction] = useState('none');
     const [editedRow, setEditedRow] = useState(undefined);
 
@@ -19,6 +19,8 @@ export default function ListWithForm({ rows, columns, onRowClick, defaultFormVal
                 defaultFormValues={defaultFormValues}
                 formValidate={formValidate}
                 columns={columns}
+                onCreate={onCreate}
+                onUpdate={onUpdate}
             />
             <EditableList 
                 columns={columns} 
@@ -26,6 +28,8 @@ export default function ListWithForm({ rows, columns, onRowClick, defaultFormVal
                 setAction={setAction} 
                 setEditedRow={setEditedRow}
                 onRowClick={onRowClick}
+                setCurrentId={setCurrentId}
+                onRemove={onRemove}
             />
         </div>
     );

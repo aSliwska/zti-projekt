@@ -9,14 +9,14 @@ CREATE TABLE IF NOT EXISTS patient (
 CREATE TABLE IF NOT EXISTS weight (
     id SERIAL NOT NULL PRIMARY KEY,
     patient_id INTEGER NOT NULL REFERENCES patient (id),
-    measurment_time TIMESTAMPTZ NOT NULL,
+    measurement_time TIMESTAMPTZ NOT NULL,
     weight REAL NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS blood_pressure (
     id SERIAL NOT NULL PRIMARY KEY,
     patient_id INTEGER NOT NULL REFERENCES patient (id),
-    measurment_time TIMESTAMPTZ NOT NULL,
+    measurement_time TIMESTAMPTZ NOT NULL,
     systolic INTEGER NOT NULL,
     diastolic INTEGER NOT NULL
 );

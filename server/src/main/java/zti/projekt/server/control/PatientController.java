@@ -6,11 +6,13 @@ import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import zti.projekt.server.data.BloodPressure;
 import zti.projekt.server.data.Patient;
 import zti.projekt.server.data.Weight;
 
+@CrossOrigin
 @Controller
 public class PatientController {
 
@@ -35,8 +37,8 @@ public class PatientController {
     }
 
     public record PatientInput(String fname, String lname, OffsetDateTime date_of_birth, String phone) {}
-    public record WeightInput(OffsetDateTime measurment_time, Float weight) {}
-    public record BloodPressureInput(OffsetDateTime measurment_time, Integer systolic, Integer diastolic) {}
+    public record WeightInput(OffsetDateTime measurement_time, Float weight) {}
+    public record BloodPressureInput(OffsetDateTime measurement_time, Integer systolic, Integer diastolic) {}
 
     @MutationMapping
     public Patient createPatient(@Argument PatientInput patientInput) {
@@ -75,7 +77,7 @@ public class PatientController {
     public Weight updateWeight(@Argument Integer id, @Argument WeightInput weightInput) {
         Weight weightToUpdate = weightRepository.findById(id).get();
 
-        weightToUpdate.setMeasurment_time(weightInput.measurment_time);
+        weightToUpdate.setMeasurement_time(weightInput.measurement_time);
         weightToUpdate.setWeight(weightInput.weight);
         
         return weightRepository.save(weightToUpdate);
@@ -101,7 +103,7 @@ public class PatientController {
     public BloodPressure updateBloodPressure(@Argument Integer id, @Argument BloodPressureInput bloodPressureInput) {
         BloodPressure bloodPressureToUpdate = bloodPressureRepository.findById(id).get();
 
-        bloodPressureToUpdate.setMeasurment_time(bloodPressureInput.measurment_time);
+        bloodPressureToUpdate.setMeasurement_time(bloodPressureInput.measurement_time);
         bloodPressureToUpdate.setSystolic(bloodPressureInput.systolic);
         bloodPressureToUpdate.setDiastolic(bloodPressureInput.diastolic);
         

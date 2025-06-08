@@ -33,7 +33,7 @@ public class BloodPressure implements Serializable {
 	private Patient patient;
 
 	@Column(nullable = false)
-	private OffsetDateTime measurment_time;
+	private OffsetDateTime measurement_time;
 
 	@Column(nullable = false)
 	private Integer systolic;
@@ -45,15 +45,15 @@ public class BloodPressure implements Serializable {
 		// no-args constructor required by JPA spec
 	}
 
-	public BloodPressure(Patient patient, OffsetDateTime measurment_time, Integer systolic, Integer diastolic) {
+	public BloodPressure(Patient patient, OffsetDateTime measurement_time, Integer systolic, Integer diastolic) {
 		this.patient = patient;
-		this.measurment_time = measurment_time;
+		this.measurement_time = measurement_time;
 		this.systolic = systolic;
 		this.diastolic = diastolic;
 	}
 
 	public BloodPressure(BloodPressureInput bloodPressureInput, Patient patient) {
-		this.measurment_time = bloodPressureInput.measurment_time();
+		this.measurement_time = bloodPressureInput.measurement_time();
 		this.systolic = bloodPressureInput.systolic();
 		this.diastolic = bloodPressureInput.diastolic();
 		this.patient = patient;

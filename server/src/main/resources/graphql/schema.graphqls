@@ -11,14 +11,14 @@ type Patient {
 type Weight {
     id: ID!
     patient: Patient!
-    measurment_time: String!
+    measurement_time: String!
     weight: Float!
 }
 
 type BloodPressure {
     id: ID!
     patient: Patient!
-    measurment_time: String!
+    measurement_time: String!
     systolic: Int!
     diastolic: Int!
 }
@@ -36,12 +36,12 @@ input PatientInput {
 }
 
 input WeightInput {
-    measurment_time: String!
+    measurement_time: String!
     weight: Float!
 }
 
 input BloodPressureInput {
-    measurment_time: String!
+    measurement_time: String!
     systolic: Int!
     diastolic: Int!
 }

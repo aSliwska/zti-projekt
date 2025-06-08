@@ -5,7 +5,7 @@ import { IconPencil, IconTrash } from '@tabler/icons-react';
 import style from "./editableList.module.css";
 
 
-export default function EditableList({ columns, rows, setAction, setEditedRow, onRowClick }) {
+export default function EditableList({ columns, rows, setAction, setEditedRow, onRowClick, setCurrentId, onRemove }) {
     return (
         <Table verticalSpacing="xs">
             <TableThead>
@@ -17,7 +17,7 @@ export default function EditableList({ columns, rows, setAction, setEditedRow, o
                 </TableTr>
             </TableThead>
             <TableTbody>
-                {rows.map((row, index) => 
+                {rows?.map((row, index) => 
                     <TableTr 
                         key={"row_" + index} 
                         onClick={() => {
@@ -37,6 +37,7 @@ export default function EditableList({ columns, rows, setAction, setEditedRow, o
                                 onClick={() => {
                                     setAction("edit");
                                     setEditedRow(row);
+                                    setCurrentId(row.id);
                                 }}
                                 variant="default"
                                 size="md"
@@ -46,7 +47,11 @@ export default function EditableList({ columns, rows, setAction, setEditedRow, o
                                 <IconPencil stroke={1.25} size={20}/>
                             </ActionIcon>
                             <ActionIcon
-                                onClick={() => {}}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onRemove(row.id);
+                                    setAction("none");
+                                }}
                                 variant="default"
                                 size="md"
                                 radius="sm"

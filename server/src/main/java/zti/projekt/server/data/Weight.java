@@ -32,7 +32,7 @@ public class Weight implements Serializable {
 	private Patient patient;
 
 	@Column(nullable = false)
-	private OffsetDateTime measurment_time;
+	private OffsetDateTime measurement_time;
 
 	@Column(nullable = false)
 	private Float weight;
@@ -41,14 +41,14 @@ public class Weight implements Serializable {
 		// no-args constructor required by JPA spec
 	}
 
-	public Weight(Patient patient, OffsetDateTime measurment_time, Float weight) {
+	public Weight(Patient patient, OffsetDateTime measurement_time, Float weight) {
 		this.patient = patient;
-		this.measurment_time = measurment_time;
+		this.measurement_time = measurement_time;
 		this.weight = weight;
 	}
 
 	public Weight(WeightInput weight, Patient patient) {
-		this.measurment_time = weight.measurment_time();
+		this.measurement_time = weight.measurement_time();
 		this.weight = weight.weight();
 		this.patient = patient;
 	}
