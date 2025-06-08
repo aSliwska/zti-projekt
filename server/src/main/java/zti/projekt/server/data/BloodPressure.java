@@ -15,12 +15,11 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import zti.projekt.server.control.PatientController.BloodPressureInput;
-import zti.projekt.server.control.PatientController.WeightInput;
 
 @Setter
 @Getter
 @Entity
-@Table(name="blood_pressure")
+@Table(name="blood_pressure", schema="zti_proj")
 public class BloodPressure implements Serializable {
 
 	@Id

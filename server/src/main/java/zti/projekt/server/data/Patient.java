@@ -20,7 +20,7 @@ import zti.projekt.server.control.PatientController.PatientInput;
 @Setter
 @Getter
 @Entity
-@Table(name="patient")
+@Table(name="patient", schema="zti_proj")
 public class Patient implements Serializable {
 
 	@Id

@@ -19,7 +19,7 @@ import zti.projekt.server.control.PatientController.WeightInput;
 @Setter
 @Getter
 @Entity
-@Table(name="weight")
+@Table(name="weight", schema="zti_proj")
 public class Weight implements Serializable {
 
 	@Id
