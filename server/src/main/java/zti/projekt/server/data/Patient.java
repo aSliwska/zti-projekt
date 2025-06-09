@@ -24,7 +24,7 @@ import zti.projekt.server.control.PatientController.PatientInput;
 public class Patient implements Serializable {
 
 	@Id
-	@SequenceGenerator(name="patient_generator", sequenceName="patient_id_seq", allocationSize=1)
+	@SequenceGenerator(name="patient_generator", sequenceName="patient_id_seq", allocationSize=1, schema="zti_proj")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="patient_generator")
 	private Integer id;
 
