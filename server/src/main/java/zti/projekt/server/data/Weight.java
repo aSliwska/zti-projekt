@@ -23,7 +23,7 @@ import zti.projekt.server.control.PatientController.WeightInput;
 public class Weight implements Serializable {
 
 	@Id
-	@SequenceGenerator(name="weight_generator", sequenceName="weight_id_seq", allocationSize=1)
+	@SequenceGenerator(name="weight_generator", sequenceName="weight_id_seq", allocationSize=1, schema="zti_proj")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="weight_generator")
 	private Integer id;
 
