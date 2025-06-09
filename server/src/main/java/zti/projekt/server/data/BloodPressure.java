@@ -23,7 +23,7 @@ import zti.projekt.server.control.PatientController.BloodPressureInput;
 public class BloodPressure implements Serializable {
 
 	@Id
-	@SequenceGenerator(name="blood_pressure_generator", sequenceName="blood_pressure_id_seq", allocationSize=1)
+	@SequenceGenerator(name="blood_pressure_generator", sequenceName="blood_pressure_id_seq", allocationSize=1, schema="zti_proj")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="blood_pressure_generator")
 	private Integer id;
 
